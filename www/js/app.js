@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('ToDo', ['ionic'])
+angular.module('ToDo', ['ionic', 'ToDo.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -17,37 +17,52 @@ angular.module('ToDo', ['ionic'])
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
     }
+
     if (window.StatusBar) {
       // Set the statusbar to use the default style, tweak this to
       // remove the status bar on iOS or change it to use white instead of dark colors.
       StatusBar.styleDefault();
     }
-    
-    // Example of a function
-    var doSomething = function(name) {
-      // You will write the code for this function here
-      // at run time this bit of code wil be executed only when you call the function
-      // You can also pass variables to the function
-      console.log('Your name is: ' + name);
-      return 'My name is: ' + name;
-    };
-    
-    // This is how you call the funtion
-    doSomething(name);
   });
 })
 
-.config(function($stateProvider, $urlRouteProvider) {
+.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-  .state('home', {
+    .state('home', {
     url: '/home',
-    templateUrl: 'templates/home.html',
-    controller: 'HomeCtrl'
+    abstract: true,
+    templateUrl: 'templates/home.html'
   })
-  .state('account', {
+
+  .state('home.todos', {
+    url: '/todos',
+    views: {
+      'todoscontent': {
+        templateUrl: 'templates/todos.html',
+        controller: 'TodosCtrl'
+      }
+    }
+  })
+
+  .state('home.todo', {
+      url: '/todo',
+      views: {
+        'todoscontent': {
+          templateUrl: 'templates/todo.html',
+          controller: 'TodoCtrl'
+        }
+      }
+    })
+
+  .state('home.account', {
     url: '/account',
-    templateUrl: 'templates/account.html',
-    controller: 'AccountCtrl'
+    views: {
+      'accountcontent': {
+        templateUrl: 'templates/account.html',
+        controller: 'AccountCtrl'
+      }
+    }
   });
-  $urlRouteProvider.otherwise('/home');
+$urlRouterProvider.otherwise('home/todos');
+
 });

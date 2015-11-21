@@ -1,5 +1,18 @@
-<ion-content class="has-header">
-  <ion-list>
-       <ion-item ng-repeat="todo in todos" ui-sref='todo({todoId: todo.id})' ng-class='{done: todo.done}'>{{todo.name}}</ion-item>
-     </ion-list>
- </ion-content>
+<ion-view view-title="ToDos List">
+  <ion-content class="padding">
+    <div class="list card">
+      <div class="item item-divider">List of Todo's</div>
+      <div class="item item-body">
+        <div>
+        Understand the code
+        </div>
+        <div>
+        Write the code
+        </div>
+        <div>
+        Run the code
+        </div>
+      </div>
+    </div>
+    </ion-content>
+</ion-view>

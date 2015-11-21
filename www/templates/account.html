@@ -1,12 +1,9 @@
-<ion-tabs>
-  <ion-tab title="ToDos">
-      <ion-nav-view name="todocontent">
-      <h1> ToDO Page</h1>
-    </ion-nav-view>
-  </ion-tab>
-  <ion-tab title="Account">
-      <ion-nav-view name="accountcontent">
-    <h1> Account Page</h1>
-    </ion-nav-view>
-  </ion-tab>
-</ion-tabs>
+<ion-view view-title="Account">
+  <ion-content>
+   <ion-list>
+     <ion-toggle ng-model ="settings.activateaccount" >
+       Activate Account
+     </ion-toggle>
+   </ion-list>
+  </ion-content>
+</ion-view>
