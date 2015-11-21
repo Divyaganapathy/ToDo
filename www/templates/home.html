@@ -1,12 +1,10 @@
-  <ion-tabs>
-    <ion-tab title="ToDos">
-        <ion-nav-view name="todocontent">
-        <h1> ToDO Page</h1>
-      </ion-nav-view>
-    </ion-tab>
-    <ion-tab title="Account">
-        <ion-nav-view name="accountcontent">
-      <h1> Account Page</h1>
-      </ion-nav-view>
-    </ion-tab>
-  </ion-tabs>
+<ion-tabs class="tabs-icon-top tabs-color-active-positive">
+  <!-- Todos Tab -->
+  <ion-tab title="ToDos" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/home/todos">
+    <ion-nav-view name="todoscontent"></ion-nav-view>
+  </ion-tab>
+  <!-- Account Tab -->
+  <ion-tab title="Account" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/home/account">
+    <ion-nav-view name="accountcontent"></ion-nav-view>
+  </ion-tab>
+</ion-tabs>
